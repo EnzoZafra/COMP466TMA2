@@ -1,0 +1,487 @@
+<html>
+
+  <head>
+    <title>Assignment 2</title>
+    <link href="shared/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="shared/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  </head>
+
+  <body class="grey lighten-2">
+
+    <div class="container center">
+      <h3>COMP 466 - Advanced Technologies for Web-Based Systems</h1>
+      <h4>Assignment 2</h2>
+      <h5>Lorenzo Zafra - 3356915</h3>
+      <h6><b>Date began:</b> March 28, 2018</h4>
+      <h6><b>Date completed:</b> April x, 2018</h4>
+      <h6><b>Estimated hours spent:</b> x hours</h4>
+    </div>
+
+    <hr>
+    <div class="container">
+      <h4>Part 1 - Resume Documentation</h4>
+      <a href="part1/resume.xml"><b>Click here to access part 1</b></a><br>
+      <b>Description</b>
+      <p>
+        Create an XML version of your resume containing at least three sections:
+        general information about you; your educational background,
+        and your work experience. Create a schema for the XML document,
+        and then create an XSLT for the XML document so that it can be rendered
+        in a browser.
+      </p>
+
+      <b>My interpretation</b>
+      <p>
+        Using XML documents, create a resume that can be viewed on a browser.
+        The browser elements should be rendered by using XSLT sheets and applying
+        them to the XML document. Also, the XML document should be verified using
+        an XSD file to make sure that the XML document is syntatically correct.
+      </p>
+
+      <b>Analysis and Design of the Web Application</b>
+      <p>
+        When designing the XML file, it should be structured like a tree structure
+        where elements have parents and parents have childs. It's also important to
+        separate data into subsections like a regular text file resume. In this way, the
+        style sheet is able to pin-point which values to get easily and also in a more
+        organized fashion. When adding data such as work experience or educational experience,
+        we can structure it in a way such that the XSL sheet iterates through the nodes
+        and sees that there is more than one and display the information accordingly.
+      </p>
+
+      <b>Documentation</b>
+      <p>
+        All of the data for the resume information resides in resume.xml. The whole document is
+        within the &lt;resume&gt; tag. Contact information resides in a &lt;information&gt; tag
+        such as my name, email, phone number, website and also address. The education tag and
+        workexperience tag may contain multiple subsections of &lt;degree&gt; and &lt;workterm&gt;
+        respectively. In this way, we can simply add more degrees or workterm if need be and the XSL
+        sheet can loop through the sections and display the information.
+        The XSD file makes sure that this structure is kept in the resume.xml file. The xsd verifies
+        that it is following the given structure and throws an error if not.
+
+        Finally, the XSL file is used to render the XML file in a browser. The XSL works by matching
+        the given section(s) in the XML and then display the information using html elements. In my sheet,
+        I first display my contact information in an unordered list by going through the "/resume/information"
+        subsection and then accessing the specific data. Then, I used a for-each directive to loop through
+        the education section to display all of the degree information. In my case, I am only working on one degree
+        but in the future, having this for loop makes it easier to add more information. Similarly,
+        the workexperience section is for-looped so that I can display my workterm data easily.
+      </p>
+
+      <b>Set up and running</b>
+      <p>
+        The only setup required is to make sure that each of the files: resume.xml, resume.xsd, resume.xsl
+        are in the same folder. To verify the XML file using the XSD file, uncomment the line
+        &lt;resume:resume xmlns:resume=&quot;http://www.resume.com&quot;&gt; at the top of the resume.xml file.
+        To be able to render the XML file in a browser, uncomment the
+        &lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;resume.xsl&quot;?&gt; statement at the top of the
+        resume.xml file. Only one of these lines should be uncommented at one point. That is, we can only
+        verify OR render but not both at the same time. To open the resume.xml file, it can be accessed by clicking
+        <a href="part1/resume.xml">here</a> or the link above.
+      </p>
+    </div>
+
+    <hr>
+    <div class="container">
+      <h4>Part 2 - Lecture & Quiz Documentation</h4>
+      <a href="part2/index.html"><b>Click here to access part 2</b></a><br>
+      <b>Description</b>
+      <p>
+        Using the web technologies you have learned so far, including
+        HTML5, CSS3, JavaScript, XML and Ajax, write a web application,
+        that can help people to learn the technologies covered in
+        Unit 1, Unit 2, or Unit 3 of the course.
+
+        The requirements are detailed as follows:
+        <ol>
+          <li>It must be a web-based system with a name you choose, a banner to show off your work, navigation menus and buttons. It should begin with a welcome page to greet the users, to explain what the application does, and what they get from it, and how they should proceed.</li>
+          <li>The application must have three pages of tutorials, accessible through navigation menus or buttons, to teach the technologies covered in Unit 1, Unit 2 and Unit 3 respectively. You don't need to teach everything, but there should be enough content to make each of the tutorials useful.</li>
+          <li>There should be a quiz for each tutorial, which can be accessed right after the tutorial page, as well as through the navigation menus and buttons of the system.</li>
+          <li>After the submission button is hit, the quiz system should be able to grade the answers the learner has provided, show the correct answers as well as the score in percentage.</li>
+          <li>The quiz system should be designed so that questions can be easily edited, added, or deleted, and new quiz can be easily created.</li>
+          <li>You should do your best to use the web technologies covered in Unit 1, unit 2 and Unit 3, including HTML5, CSS3, JavaScript, XML and Ajax.</li>
+          <li>Your web application should use or teach at least five page-structure elements and six new input types</li>
+          <li>You should use an external style sheet for all pages of the system, to retain a consistent and user-friendly interface for your system.</li>
+          <li>When using HTML5 table, be sure that you only use it to display tabular information, not to lay out the elements on your page.</li>
+        </ol>
+
+      </p>
+
+      <b>My interpretation</b>
+      <p>
+        This part of the assignment requires us to create a tutorial on the basics of web development topics such as CSS, HTML, JavaScript, Ajax and XML.
+        In order to learn HTML elements, we should use different kinds of elements such as headers and also form elements like text fields, radio buttons and checkboxes.
+        The description also requires us to create a quiz at the end of each tutorial. The quiz should show the user's mark and the correct answers.
+        Also, the quiz should be designed so that questions can be easily added. Therefore, the assignment's UI should not be static but rather dynamically created.
+        By using the technologies learned in Units 1, 2 and 3 (JavaScript, XML and Ajax to be exact) we can create the UI dynamically.
+      </p>
+
+      <b>Analysis and Design of the Web Application</b>
+      <p>
+        First, the main page or index.html contains a welcome page that tells the user what the application does.
+        In the middle, the user is able to select which Unit they want to learn from the dropdown box. They can also select
+        which unit using the navigation menu which is available in every page of this assignment. When the user clicks a unit,
+        They are brought to another .html file which contains the lecture for the unit.
+        <br><br>
+
+        Information about the topics in each unit are stored in an XML file. Each topic belongs in the notes section of the XML file
+        and each topic has subtopics. For example, the HTML5 topic may have Elements and Forms as its subtopic. In this way, we can use JavaScript
+        and Ajax (XMLHttpRequest) to dynamically load the XML file and create the notes section in HTML.
+        The information is loaded into the .html file when the .html file calls a JavaScript file called loadnotes.js.
+        <br><br>
+
+        In loadnotes.js, we create an XMLHttpRequest object to do a GET request obtaining the XML file where the information
+        about the unit resides. We then use a DOMParser to parse through the XML file and dynamically create a list of notes for the user to read in HTML.
+        By following the XML structure, we are able to separate which information are subtopic and should be displayed as headers and which are notes.
+        <br><br>
+
+        At the end of the lecture, a button is created which leads the user to a quiz page. In a similar fashion, the quiz questions and answers are stored in an XML file.
+        To build the quiz, we call a JavaScript function called buildQuiz(). The function creates an XMLHttpRequest and a GET call for the quiz information.
+        By checking the type of question it is which is stored in the XML file, the js file knows whether to create a multiple choice type question, fill in the blanks question,
+        a true or false question, or a select all question. (Only these 4 types of questions are supported.). When the user clicks 'Submit', the form calls a callback function called
+        checkAnswer() which checks the answer of the user and compares it with the answers that are stored for each question in the XML file. The id's for each form which may contain the answer
+        are stored in a dictionary data structure while they are dynamically created. We use a dictionary so that we can use the id as a key, and the type of question as a value.
+        When checking the answer, we loop through the dictionaries keys (ids), check the value (type of question) and obtian the answer depending on the type.
+        When the answer is obtained, we simply check against the correct answers and increment a score variable accordingly.
+        <br><br>
+
+        To print the score, we first refresh the page to remove previous answers and score and then dynamically create elements to show the user their score and also the correct answers.
+      </p>
+
+      <b>Documentation</b>
+      <p>
+        Using Materialize CSS, we are able to create an aesthetically pleasing user interface. On the welcome page, I used a background image
+        which resides in shared/img. Also, every page has a navigation bar which links to the home page and the unit's html page.
+        <br><br>
+
+        <b>XML Files Format: </b>
+        <p>notes.xml</p>
+        <img src="shared/img/notesxml.png" alt="notes xml file structure" height=150 width=250>
+        <br>
+        <p>questions.xml</p>
+        <img src="shared/img/questionsxml.png" alt="questions xml file structure" height=300 width=500>
+        <br><br>
+
+        <b>JavaScript Functions: </b>
+        <p>loadnotes.js</p>
+        <ul>
+          <li>- Creates an XMLHttpRequest to do a GET call for the notes.xml file</li>
+          <li>- Uses DOMParser to parse the XML file and get elements by their tag name</li>
+          <li>- Dynamically create HTML elements such as divs, headers and paragraphs to display data from XML file</li>
+        </ul>
+        <p>buildQuiz()</p>
+        <ul>
+          <li>- Creates an XMLHttpRequest to do a GET call for the questions.xml file</li>
+          <li>- Uses DOMParser to parse the XML file and get elements by their tag name</li>
+          <li>- Check the type of question and then create HTML elements accordingly</li>
+          <li>- Stores the 'id' of every form element in a dictionary where key=id and value=question type for later use</li>
+          <li>- Store the correct answer in a list for later use</li>
+          <li>- Creates a button which calls back the checkAnswer() function on submit</li>
+        </ul>
+        <p>checkAnswer()</p>
+        <ul>
+          <li>- Iterates through the dictionary created in buildQuiz(). For each iteration, check the type of question (value)
+            and obtain the user's answer depending on the type. The for the form element is given as the key of the dictionary</li>
+          <li>- After obtaining the answer, compare with the valid answers from the list created in buildQuiz()</li>
+          <li>- Increments score whenever the user gets the correct answer</li>
+          <li>- call printResult(score)</li>
+        </ul>
+        <p>printResult()</p>
+        <ul>
+          <li>- Calculate the user's percentage by first getting the amount of questions and then dividing their score by the total amount</li>
+          <li>- Use a for loop to loop through the correct answers list to display the correct answers to the user</li>
+        </ul>
+      </p>
+
+      <b>Set up and running</b>
+      <p>
+        To access the welcome page, assuming you are already hosting a webserver, click <a href="part2/index.html">here</a> or the link above.
+        You can navigate to the lectures by selecting a unit from the navigation bar or by using the dropdrown
+        in the middle of the welcome page.
+        <br><br>
+
+        To access the quiz, scroll to the bottom at the end of every unit. To grade the quiz, answer each question
+        and hit the Submit button at the end of the quiz. Your score and result will be revealed after submission.
+      </p>
+
+      <b>Extra Information</b>
+      <p>
+        The notes for each unit were from the given presentations for each unit (written by Pearson).
+        Materialize CSS was used for this whole assignment as approved by Harris Wang.
+      </p>
+    </div>
+
+    <hr>
+    <div class="container">
+      <h4>Part 3 - Slideshow Documentation</h4>
+      <a href="part3/index.html"><b>Click here to access part 3</b></a><br>
+      <b>Description</b>
+      <p>
+        For this project, you are required to create a slideshow web application using HTML5 canvas
+        and other web technologies you have learned so far. The requirements are as follows:
+
+        <ol>
+          <li>The slideshow should be drawn on the canvas; </li>
+          <li>There should be a caption for each image in the show;</li>
+          <li>There should be a button to start/stop the show;</li>
+          <li>There should be a control to toggle the show between random and sequential;</li>
+          <li>There should be buttons to manually turn the show backward or forward, only if the show is in sequential mode;</li>
+          <li>There should be a dropdown list for users to select different transition/transformation effects for the show;</li>
+          <li>The data of the images should be in a JSON array so that images and their captions can be easily maintained;</li>
+          <li>To avoid copyright issues, you should use the images/photos you took. If you don’t have the images ready, please go around the place you live or work and take some good ones;</li>
+          <li> The show should have at least 20 nice pictures.</li>
+        </ol>
+
+      </p>
+
+      <b>My interpretation</b>
+      <p>
+        The goal for this part of the assignment is to design a slideshow application that uses HTML5's canvas element.
+        The images for the slideshow should be stored in a json file, so that we can easily add photos into the application when need be.
+        There should be a control panel for the slideshow which enables the user to: Pause/Play, Previous/Next image, change transition modes
+        and change between sequential or random order of images. The panel should only enable going forward and backward if the show is in sequential mode.
+      </p>
+
+      <b>Analysis and Design of the Web Application</b>
+      <p>
+        To store the images, I placed the image files in a folder called img/. Within the img/ directory also contains a json file, images.json, which stores an
+        array of the images path's and also captions for each picture. When the user loads the html file, the javascript loads this json file and stores the inforation
+        in a dictionary for later use. The loading and processing of the images are done using an Ajax call.
+        <br><br>
+
+        Each action or button in the control panel has an event listener that monitors whenever a user has interacted with the buttons. The specific details about
+        the event listener functions can be seen below in the 'Documentation' section. These event listeners are binded to the buttons and dropdowns when the window has
+        loaded and the images are finished being processed.
+        <br><br>
+
+        Drawing the image on the canvas requires the images to be scaled to the size of the canvas. We do the scaling by taking the ratio of the canvas' width/height and
+        dividing it by the images width/height. We then shift the position of the cursor to draw on the canvas so that the image is positioned in the middle of the canvas
+        when the image is drawn.
+        <br><br>
+
+        There are two choices for transition effects: Fade In and Normal Transition. The details for these are documented in the 'Documentation' section.
+      </p>
+
+      <b>Documentation</b>
+      <p>
+        <b>JavaScript Functions: </b>
+        <p>loadimgs</p>
+        <ul>
+          <li>- Uses an Ajax call to load 'images.json' and parse the json file</li>
+          <li>- Creates and stores an Image object using the given path in the json file</li>
+          <li>- Also stores the caption of each image for later use</li>
+        </ul>
+        <p>drawImageScaled(img, ctx)</p>
+        <ul>
+          <li>- Scales an image to the size of the canvas</li>
+          <li>- Scales by taking the size of the canvas and dividing by the size of the image</li>
+          <li>- This ratio is then used to draw the image onto the canvas while scaled</li>
+        </ul>
+        <p>displayImage(image, caption, transition)</p>
+        <ul>
+          <li>- First clears the canvas for any previous images</li>
+          <li>- Depending on the transition mode, the image is drawn</li>
+          <li>- If Normal transition, simply draw the image on the canvas</li>
+          <li>- If FadeIn transition, draw the image with an alpha value of 0 and repeat incrementing by 0.1 everytime until alpha is incremented to 1</li>
+        </ul>
+        <p>pauseplayListener()</p>
+        <ul>
+          <li>- An event listener callback for the 'Play' button</li>
+          <li>- Simply toggles the paused boolean and starts/stops the interval for displaying an image every 1s</li>
+        </ul>
+        <p>switchListener()</p>
+        <ul>
+          <li>- An event listener callback for the 'Random/Sequential' toggle switch</li>
+          <li>- If toggled, the 'Next' and 'Prev' are disabled</li>
+          <li>- If not, the 'Next' and 'Prev' are enabled</li>
+        </ul>
+        <p>changeTransition()</p>
+        <ul>
+          <li>- An event listener callback for the 'transition' dropdown</li>
+          <li>- Checks the index of the selected dropdown item then updates the 'transition' variable</li>
+        </ul>
+        <p>calculateIndex()</p>
+        <ul>
+          <li>- First checks if the 'Random/Sequential' switch is toggled</li>
+          <li>- If toggled, then we calculate a random index by using the Math.random() function and multiplied by the number of available images</li>
+          <li>- If not, we simply increment the current index by 1, then modulo with the amount of images to account for hitting the end of the array</li>
+        </ul>
+        <p>prevImage()</p>
+        <ul>
+          <li>- Decrement the currentIndex by one, if it becomes negative, wrap around to the end of the array</li>
+          <li>- Display the image at the currentIndex</li>
+        </ul>
+        <p>nextImage()</p>
+        <ul>
+          <li>- Increment the currentIndex by one. Modulo by the number of images to go back to the start if it has passed the limit</li>
+          <li>- Display the image at the currentIndex</li>
+        </ul>
+      </p>
+
+      <b>Set up and running</b>
+      <p>
+        To access the welcome page, assuming you are already hosting a webserver, click <a href="part3/index.html">here</a> or the link above.
+        <br><br>
+
+        - To change between random or sequential pictures, toggle the switch. <br>
+        - To change between transition modes, select a mode in the dropbox <br>
+        - Pausing and Playing is done by clicking the 'Play' button. <br>
+        - Moving to the next picture or previous picture are only enabled in sequential mode.
+      </p>
+    </div>
+
+    <hr>
+    <div class="container">
+      <h4>Part 4 - Utility Tools Documentation</h4>
+      <a href="part4/index.html"><b>Click here to access part 4</b></a><br>
+      <b>Description</b>
+      <p>
+        For this project, you are required to develop a web application that can provide users with the following utility tools:
+        <ul>
+          <li>Measurement converters: weights, lengths, areas, and volumes</li>
+          <li>A mortgage calculator</li>
+          <li>A utility tool that you think could be useful. You may need to do some research on the Web to build this last tool, and in the report you need to justify why you think it will be useful.</li>
+        </ul>
+
+        In order to get full marks for the above design and implementation, the following are required:
+        <ol>
+          <li>It must have an integrated and user-friendly interface for users to access each of the tools you designed.</li>
+          <li>You need to use JavaScript functions and built-in objects to implement the application.</li>
+          <li>At any time only one tool will be shown, to ensure a clean and tidy space for users to work with.</li>
+          <li>You need to use Ajax technologies to eliminate whole page update when switching from one utility to another.</li>
+          <li>You need to use event handler to calculate and show the result as soon as the user has given enough input to the system.</li>
+          <li>In the assignment report, you need to provide sufficient documentation for your work, including algorithms and formulas used for the tools. If you have used any resources, including documents</li>
+        </ol>
+      </p>
+
+      <b>My interpretation</b>
+      <p>
+        The goal for this assignment is to use all of the technologies we've learned so far to create 3 utility tools. The utility tools must be user friendly and
+        easy to use. Each tool must be event driven and should calculate the intended result when enough inputs are given by the user. Only one tool should be
+        displayed at any time. Showing the UI should be done using Ajax technologies so that a partial page can be updated asynchronously. Document any algorithms and formulas
+        used for the tools.
+      </p>
+
+      <b>Analysis and Design of the Web Application</b>
+      <p>
+        Each tool is displayed on the page by selecting a tab. When a tab is selected, an Ajax call for the tool's html file is sent then the page is partially update
+        to display the form for the corresponding tool. When the tool is loaded, a JavaScript parses through the form elements to store the names of the elements that require
+        the users input. Each of these elements have an event listener attached to them so that when the user changes or does an input, we can see if there is enough information to calculate
+        the result.
+        <br><br>
+
+        For the unit converter, the units that are enabled depends on the type of measurement. I handled disabling the elements by setting a class variable to the dropdown items.
+        For example, the unit 'pound' should be disabled for Length, Area and Volume. Therefore, I set the element's class to 'l a v'. When the user selects 'length', I use jQuery to
+        look for any elements with class 'l' and disable them. All elements are enabled when the user changes the measurement type.
+        <br>
+        To handle conversion, I first converted the original unit to a base (in my case: meter, gram or litre). Then I take this converted value and once again convert it to the unit that the user wants.
+        <br><br>
+
+        For the mortgage calculator, I first convert the amortization (years) to months by multiplying by 12. Then, I calculated th rate in decimal form over 12 months.
+        The total payment is then calculated using the formula found <a href="https://www.mtgprofessor.com/formulas.htm">here</a>. Depending on the user's input for frequency,
+        I take the calculated payment and convert it to a monthly, bi-weekly or weekly value.
+        <br><br>
+
+        The Total Daily Energy Expenditure calculator is used to calculate the amount of calories you burn per day. This tool is useful for anyone who wants to lose, gain or maintain weight (everyone).
+        By using the calculator, we know how much energy our body needs per day. From this value, we can eat a lower amount of calories to lose weight, eat a higher amount to gain weight or eat the same
+        amount of calories from the calculator to maintain your weight.
+        <br><br>
+
+        To calculate the result, I first convert the height to centimeters by using regex to transform (5ft10in) to centimeters. Then, I convert the weight in pounds to grams so that I can
+        use the formula given <a href="http://www.superskinnyme.com/calculate-tdee.html">here</a>. The basal metabolic rate is the amount of energy used without any activity at all. I first calculate
+        this value depending on the gender of the user. Then, the TDEE is calculated by taking the BMR and then multiplying it by the activity factor.
+        <br><br>
+
+        Various functions used in the web application are documented below.
+
+      </p>
+
+      <b>Documentation</b>
+      <p>
+        <b>JavaScript Functions: </b>
+        <p>loadrequired()</p>
+        <ul>
+          <li>- Loops through the form elements in the page and appends them in a dictionary for later use</li>
+          <li>- Adds event listeners to every form input in the page</li>
+        </ul>
+        <p>verifyInput()</p>
+        <ul>
+          <li>- Checks if every form has a valid input</li>
+          <li>- Converts the form values to an integer if needed</li>
+        </ul>
+        <p>convertHeight(height)</p>
+        <ul>
+          <li>- Uses regex to convert the height in the form '5ft10in' to centimeters</li>
+          <li>- The pattern (.*)ft(.*)in is used to group the integers</li>
+          <li>- Multiply and add the values to get the height in centimeters</li>
+        </ul>
+        <p>calculate()</p>
+        <ul>
+          <li>- Calls the corresponding calculate function depending on the tool being used</li>
+        </ul>
+        <p>calculateTDEE()</p>
+        <ul>
+          <li>- Get the inputs from the dictionary that is filled by the form's event listeners</li>
+          <li>- Convert the weight and height to the units that are needed in the formula</li>
+          <li>- Calculate the Basal Metabolic Rate (BMR) depending on the gender of the user</li>
+          <li>- Calculate the TDEE using the BMR and the activity factor selected from the dropdown</li>
+        </ul>
+        <p>calculateMortgage()</p>
+        <ul>
+          <li>- Get the inputs from the dictionary that is filled by the form's event listeners</li>
+          <li>- Calculate total price paid by taking purchase price minus down payment</li>
+          <li>- Calculate the interest rate in decimals over 12 months</li>
+          <li>- Calculate the payment paid using the formula in the link that can be found below</li>
+          <li>- Convert the values to Monthly, Bi-Weekly or Weekly then display to the user</li>
+        </ul>
+        <p>calculateUnit()</p>
+        <ul>
+          <li>- Get the inputs from the dictionary that is filled by the form's event listeners</li>
+          <li>- Check if Area or Volume is selected, if so, set multiplier to 2 or 3 respectively</li>
+          <li>- Convert the value and the unit given to a base value (meters)</li>
+          <li>- Put the converted value to the power of the multiplier to take into account the dimensions of the unit</li>
+          <li>- After converting the value, convert again. This time taking the converted value and getting the wanted units.</li>
+          <li>- Display results to the user</li>
+        </ul>
+        <p>listenTDEE() / listenMort() / listenUnit()</p>
+        <ul>
+          <li>- Used to set event listeners to Materialize CSS elements</li>
+          <li>- Each listener checks if a value has been selected then appends to a dictionary the value</li>
+        </ul>
+        <p>clearTDEE() / clearMortgage() / clearUnit()</p>
+        <ul>
+          <li>- Used to clear all the form inputs and the results</li>
+          <li>- Called when the 'Clear' button is clicked</li>
+        </ul>
+        <p>enableAll()</p>
+        <ul>
+          <li>- Uses jQuery to enable all the elements with the given class name</li>
+        </ul>
+        <p>changeEnable()</p>
+        <ul>
+          <li>- Uses jQuery to disable elements with a given class name</li>
+        </ul>
+      </p>
+
+      <b>Set up and running</b>
+      <p>
+        To access the welcome page, assuming you are already hosting a webserver, click <a href="part4/index.html">here</a> or the link above.
+        <br><br>
+
+      </p>
+
+      <b>Extra Information</b>
+      <p>
+        Materialize CSS was used for this whole assignment as approved by Harris Wang. <br>
+        Formulas used can be found in the links below: <br>
+        TDEE formula: <a href="http://www.superskinnyme.com/calculate-tdee.html">http://www.superskinnyme.com/calculate-tdee.html</a> <br>
+        Mortgage formula: <a href="https://www.mtgprofessor.com/formulas.htm">https://www.mtgprofessor.com/formulas.htm</a>
+      </p>
+    </div>
+
+    <script src="shared/js/materialize.js"></script>
+    <script src="shared/js/init.js"></script>
+  </body>
+
+</html>
