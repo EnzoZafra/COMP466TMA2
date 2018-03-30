@@ -3,7 +3,6 @@ $(document).ready(function() {
 		{
 			name: 'delete',
 			callback: function (collectionItem, collection) {
-				console.log(collectionItem.href);
 				var bmurl = collectionItem.href;
 				$.ajax({
 					data: 'url=' + bmurl,
@@ -15,19 +14,33 @@ $(document).ready(function() {
 				$(collectionItem).remove();
 			}
 		},
+		{
+			name: 'mode_edit',
+			callback: function (collectionItem, collection) {
+				var newurl = prompt("Enter a new URL", collectionItem.href);
+				if (newurl != null) {
+					if(!isValidURL(newurl)) {
+						alert("New URL given is invalid");
+					} else {
+						$.ajax({
+							data: {oldurl: collectionItem.href, newurl: newurl},
+							url: 'server/editbookmark.php',
+							method: 'POST',
+							success: function(msg) {
+								location.reload();
+							}
+						});
+					}
+				}
+			}
+		}
 	]);
 });
 
 function isValidURL(str) {
-	regexp =  /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
-	if (regexp.test(str))
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
+   var a  = document.createElement('a');
+   a.href = str;
+   return (a.host && a.host != window.location.host);
 }
 
 function validateURL() {
