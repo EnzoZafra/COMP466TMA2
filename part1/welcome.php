@@ -1,4 +1,6 @@
 <?php
+include 'helper/database.php';
+include 'helper/database_init.php';
 session_start();
 if (isset($_SESSION['loggeduser'])) {
 	header('Location: main.php');
@@ -16,11 +18,7 @@ if (isset($_SESSION['loggeduser'])) {
 	<script src="../shared/js/init.js"></script>
 </head>
 <nav class="pink lighten-1" role="navigation">
-<div class="nav-wrapper container">
-	<ul class="right hide-on-med-and-down">
-		<li><a class="white-text" href="welcome.php">Home</a></li>
-	</ul>
-</div>
+	<div class="container"><a href="welcome.php" class="brand-logo">Bookmark Manager</a></div>
 </nav>
 
 <body class="cyan">
@@ -72,11 +70,14 @@ if (isset($_SESSION['loggeduser'])) {
 		<div class="col-content card-panel">
 			<h3>Top Bookmarks:</h3>
 			<ol>
-				<li>bookmark 1</li>
-				<li>bookmark 2</li>
-				<li>bookmark 3</li>
-				<li>bookmark 4</li>
-				<li>bookmark 5</li>
+				<?php
+				$query = DB::run("SELECT url, count(url) as count FROM bookmarks GROUP BY url ORDER BY count DESC LIMIT 10;");
+				while ($row = $query->fetch(PDO::FETCH_LAZY))
+				{
+					$url = $row['url'];
+					echo "<li><a href=\"" . $url . "\" target=\"_blank\">". $url . "</a></li>";
+				}
+				?>
 			</ol>
 		</div>
 	</div>
@@ -84,10 +85,4 @@ if (isset($_SESSION['loggeduser'])) {
 
 </body>
 
-<?php
-include 'helper/database.php';
-include 'helper/database_init.php';
-
-
-?>
 </html>

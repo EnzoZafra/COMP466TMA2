@@ -10,9 +10,12 @@
 	<script src="../shared/js/init.js"></script>
 </head>
 
+<nav class="pink lighten-1" role="navigation">
+	<div class="container"><a href="welcome.php" class="brand-logo">Bookmark Manager</a></div>
+</nav>
 <body class="cyan">
-  <div>
-	<div class="register-form z-depth-4 card-panel">
+  <div class="row">
+	<div class="register-form z-depth-4 card-panel col s6 offset-s3">
 	  <form method="post" action="server/register.php">
 		<div class="row">
 		  <div class="input-field col s12 center">

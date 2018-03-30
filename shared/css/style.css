@@ -3,7 +3,7 @@
 }
 
 .card-panel {
-	height: 70%;
+	min-height: 70%;
 }
 
 .register-form {
