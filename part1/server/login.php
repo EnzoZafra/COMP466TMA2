@@ -11,6 +11,14 @@ else {
 	$password = md5($_POST["password"]);
 
 	$row = DB::run("SELECT * FROM users WHERE username=? AND password=?", [$username, $password])->fetch();
-	var_dump($row);
+
+	if(!$row) {
+		header('Location: ../welcome.php?failed=true');
+	}
+	else {
+		session_start();
+		$_SESSION['loggeduser'] = $username;
+		header('Location: ../main.php');
+	}
 }
 ?>

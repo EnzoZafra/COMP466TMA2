@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (isset($_SESSION['loggeduser'])) {
+	header('Location: main.php');
+}
+?>
+
 <html>
 <head>
 	<title>Bookmark Manager</title>
@@ -40,14 +47,23 @@
 				</div>
 			</div>
 			<div class="row">
-			<div class="input-field col s12">
-				<button type="submit" class="btn waves-effect waves-light col s12">Login</button>
-			</div>
+				<p class="red-text center">
+				<?php
+					if(isset($_GET['failed']) && $_GET['failed']) {
+						echo 'Username or password is wrong';
+					};
+				?>
+				</p>
 			</div>
 			<div class="row">
-			<div class="input-field col s6 m6 l6">
-				<p class="margin medium-small"><a href="registerpage.php">Register Now!</a></p>
+				<div class="input-field col s12">
+					<button type="submit" class="btn waves-effect waves-light col s12">Login</button>
+				</div>
 			</div>
+			<div class="row">
+				<div class="input-field col s6 m6 l6">
+					<p class="margin medium-small"><a href="registerpage.php">Register Now!</a></p>
+				</div>
 			</div>
 
 		</form>
