@@ -2,12 +2,9 @@
 <html lang="en">
 <head>
 	<title>Register for Bookmark Manager</title>
-
 	<link href="../shared/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection">
 	<link href="../shared/css/style.css" type="text/css" rel="stylesheet" media="screen,projection">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<script type="text/javascript" src="js/plugins/jquery-1.11.2.min.js"></script>
-	<script type="text/javascript" src="js/materialize.min.js"></script>
 </head>
 
 <body class="cyan">
@@ -32,6 +29,15 @@
 			<input name="password" type="password">
 			<label for="password">Password</label>
 		  </div>
+		</div>
+		<div class="row">
+			<p class="red-text center">
+			<?php
+				if(isset($_GET['taken']) && $_GET['taken']) {
+					echo 'Username is already taken';
+				};
+			?>
+			</p>
 		</div>
 		<div class="row">
 		  <div class="input-field col s12">

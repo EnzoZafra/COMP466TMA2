@@ -10,9 +10,15 @@ else {
 	$username = $_POST["username"];
 	$password = md5($_POST["password"]);
 
-	$row = DB::run("INSERT INTO users (`username`, `password`) VALUES (?, ?)"
-		, [$username, $password]);
-
-	include 'welcome.php';
+	$check = DB::run("SELECT * FROM users WHERE `username`=?", [$username])->fetch();
+	if ($check) {
+		$usertaken = true;
+		header('Location: ../registerpage.php?taken='. $usertaken);
+	}
+	else {
+		$row = DB::run("INSERT INTO users (`username`, `password`) VALUES (?, ?)"
+			, [$username, $password]);
+		header('Location: ../welcome.php');
+	}
 }
 ?>
