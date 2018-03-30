@@ -67,7 +67,8 @@ if (isset($_SESSION['loggeduser'])) {
 		</form>
 	</div>
 	<div class="col s9">
-		<div class="col-content card-panel">
+		<div class="row col-content card-panel">
+			<h5>Welcome! To manage your own bookmarks, please login using the form!</h5>
 			<h3>Top Bookmarks:</h3>
 			<ol>
 				<?php
