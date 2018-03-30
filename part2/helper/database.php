@@ -1,6 +1,6 @@
 <?php
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'bmmanager');
+define('DB_NAME', 'lms');
 define('DB_USER', 'comp466admin');
 define('DB_PASS', 'password');
 define('DB_CHAR', 'utf8');
