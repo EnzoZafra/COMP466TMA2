@@ -1,7 +1,7 @@
 <?php
 define('DB_HOST', 'localhost');
-/* define('DB_NAME', 'bmmanager'); */
-define('DB_NAME', 'pdotest');
+define('DB_NAME', 'bmmanager');
+/* define('DB_NAME', 'pdotest'); */
 define('DB_USER', 'bmadmin');
 define('DB_PASS', 'password');
 define('DB_CHAR', 'utf8');
