@@ -1,13 +1,16 @@
+<?php
+session_start();
+if (!isset($_SESSION['loggeduser'])) {
+	header('Location: server/notlogged.php');
+}
+?>
 <html>
 <head>
 	<title>Bookmark Manager</title>
-	<link href="../shared/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<link href="../shared/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 	<link href="../shared/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 	<link rel="stylesheet" href="../shared/css/materialize-collection-actions-1.0.0.min.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script src="../shared/js/materialize.js"></script>
-	<script src="../shared/js/materialize-collection-actions-1.0.0.min.js"></script>
 </head>
 
 <nav class="pink lighten-1" role="navigation">
@@ -59,8 +62,7 @@
 			<div id="collection-id" class="collection mca-always-visible">
 			<?php
 			include 'helper/database.php';
-			session_start();
-			$id = DB::run("SELECT userid FROM users WHERE `username`=?", [$_SESSION['loggeduser']])->fetch()['userid'];
+			$id = $_SESSION['loggeduser'];
 			$query = DB::run("SELECT * FROM bookmarks WHERE users_userid=?", [$id]);
 			while ($row = $query->fetch(PDO::FETCH_LAZY))
 			{
@@ -74,6 +76,9 @@
 	</div>
 </div>
 
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="../shared/js/materialize.min.js"></script>
+<script src="../shared/js/materialize-collection-actions-1.0.0.min.js"></script>
 <script src="main.js"></script>
 </body>
 </html>

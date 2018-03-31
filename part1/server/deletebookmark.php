@@ -10,9 +10,8 @@ else {
 
 	$url = $_POST["url"];
 
-	$user = DB::run("SELECT userid FROM users WHERE `username`=?", [$_SESSION['loggeduser']])->fetch();
-	if ($user) {
-		$id = $user['userid'];
+	$id = $_SESSION['loggeduser'];
+	if ($id) {
 		$row = DB::run("DELETE FROM bookmarks WHERE `users_userid`=? AND `url`=?"
 			, [$id, $url]);
 		header('Location: ../main.php');

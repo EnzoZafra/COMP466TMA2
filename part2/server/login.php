@@ -17,7 +17,7 @@ else {
 	}
 	else {
 		session_start();
-		$_SESSION['loggeduser'] = $username;
+		$_SESSION['loggeduser'] = $row['userid'];
 		header('Location: ../main.php');
 	}
 }

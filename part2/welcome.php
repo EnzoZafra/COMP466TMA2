@@ -10,12 +10,9 @@ if (isset($_SESSION['loggeduser'])) {
 <html>
 <head>
 	<title>eCourse</title>
-	<link href="../shared/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<link href="../shared/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 	<link href="../shared/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script src="../shared/js/materialize.js"></script>
-	<script src="../shared/js/init.js"></script>
 </head>
 <nav class="pink lighten-1" role="navigation">
 	<div class="container"><a href="welcome.php" class="brand-logo">eCourse</a></div>
@@ -73,6 +70,8 @@ if (isset($_SESSION['loggeduser'])) {
 	</div>
 </div>
 
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="../shared/js/materialize.min.js"></script>
 </body>
 
 </html>

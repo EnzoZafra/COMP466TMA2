@@ -10,10 +10,8 @@ else {
 
 	$url = $_POST["url"];
 
-	$user = DB::run("SELECT userid FROM users WHERE `username`=?", [$_SESSION['loggeduser']])->fetch();
-	if ($user) {
-		var_dump($user);
-		$id = $user['userid'];
+	$id = $_SESSION['loggeduser'];
+	if ($id) {
 		$duplicate = DB::run("SELECT bookmarkid FROM bookmarks WHERE `url`=? AND `users_userid`=?", [$url, $id])->fetch();
 		if($duplicate) {
 			header('Location: ../main.php?duplicate=true');

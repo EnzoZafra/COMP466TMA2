@@ -24,13 +24,13 @@
 			<b>Description</b>
 			<p>
 				For this project, you will be using MySQL and PHP to develop a web application that provides an online bookmarking service to users on the Internet. The requirements are as follows:
-				<ul>
-					<li>- The web application should have a good thoughtful interface, with menus and navigation buttons as needed.</li>
-					<li>- It should have a name or logo shown across all the pages.</li>
-					<li>- It should begin with a welcome or greeting message and a list of ten most popular websites that people have bookmarked.</li>
-					<li>- Once signed in, a list of bookmarks should be displayed, and the user can browse any web site in the list in a new browser tab or window by clicking the URL.</li>
-					<li>- The user will also be able to add new websites to the list and edit and delete any of the existing ones in the list;</li>
-					<li>- When adding or editing, user input needs to be validated using JavaScript, to make sure the URLs are correct and active.</li>
+				<ul class="browser-default">
+					<li>The web application should have a good thoughtful interface, with menus and navigation buttons as needed.</li>
+					<li>It should have a name or logo shown across all the pages.</li>
+					<li>It should begin with a welcome or greeting message and a list of ten most popular websites that people have bookmarked.</li>
+					<li>Once signed in, a list of bookmarks should be displayed, and the user can browse any web site in the list in a new browser tab or window by clicking the URL.</li>
+					<li>The user will also be able to add new websites to the list and edit and delete any of the existing ones in the list;</li>
+					<li>When adding or editing, user input needs to be validated using JavaScript, to make sure the URLs are correct and active.</li>
 				</ul>
 			</p>
 
@@ -79,75 +79,75 @@
 
 			<b>PHP files</b>
 			<p>registerpage.php</p>
-			<ul>
-				<li>- A form where the user inputs a username and password</li>
-				<li>- Form creates a POST request and sends the username / password to `server/register.php`</li>
+			<ul class="browser-default">
+				<li>A form where the user inputs a username and password</li>
+				<li>Form creates a POST request and sends the username / password to `server/register.php`</li>
 			</ul>
 			<p>register.php</p>
-			<ul>
-				<li>- PHP script which handles registring the user. Called by a POST request</li>
-				<li>- Retrieves username/password from the request, then hashes the password</li>
-				<li>- Checks first if username is taken. If not, insert the pair into the database</li>
-				<li>- If username is taken, redirect user back to register page with an error</li>
+			<ul class="browser-default">
+				<li>PHP script which handles registring the user. Called by a POST request</li>
+				<li>Retrieves username/password from the request, then hashes the password</li>
+				<li>Checks first if username is taken. If not, insert the pair into the database</li>
+				<li>If username is taken, redirect user back to register page with an error</li>
 			</ul>
 			<p>welcome.php</p>
-			<ul>
-				<li>- PHP script which displays a login form and the top 10 most bookmarked URLs</li>
-				<li>- Top 10 list is retrieved by using a MySQL query to the bookmarks table</li>
-				<li>- Login form creates a POST request to 'server/login.php' on submit</li>
+			<ul class="browser-default">
+				<li>PHP script which displays a login form and the top 10 most bookmarked URLs</li>
+				<li>Top 10 list is retrieved by using a MySQL query to the bookmarks table</li>
+				<li>Login form creates a POST request to 'server/login.php' on submit</li>
 			</ul>
 			<p>login.php</p>
-			<ul>
-				<li>- Retrieves username/password from request</li>
-				<li>- Hash password and compare with the values in the database</li>
-				<li>- If compare is successful, set session variable to the username and redirect them to the main.php page</li>
-				<li>- If unsuccessful, redirect them back to the welcome.php page with an error</li>
+			<ul class="browser-default">
+				<li>Retrieves username/password from request</li>
+				<li>Hash password and compare with the values in the database</li>
+				<li>If compare is successful, set session variable to the username and redirect them to the main.php page</li>
+				<li>If unsuccessful, redirect them back to the welcome.php page with an error</li>
 			</ul>
 			<p>main.php</p>
-			<ul>
-				<li>- The main page for when the user is logged in</li>
-				<li>- From here, user is able to add, edit or delete bookmarks</li>
-				<li>- Dynamically creates bookmark list using php and a MySQL query</li>
-				<li>- Adding bookmarks calls the main.js script which verifies that the URL is in correct form</li>
-				<li>- Bookmarks are added by using a form which sends a POST request on submit to addbookmarks.php</li>
-				<li>- Bookmarks are deleted by using an Ajax call which sends a POST request on submit to deletebookmarks.php</li>
-				<li>- Bookmarks are edited by using an Ajax call which sends a POST request on submit to editbookmarks.php</li>
+			<ul class="browser-default">
+				<li>The main page for when the user is logged in</li>
+				<li>From here, user is able to add, edit or delete bookmarks</li>
+				<li>Dynamically creates bookmark list using php and a MySQL query</li>
+				<li>Adding bookmarks calls the main.js script which verifies that the URL is in correct form</li>
+				<li>Bookmarks are added by using a form which sends a POST request on submit to addbookmarks.php</li>
+				<li>Bookmarks are deleted by using an Ajax call which sends a POST request on submit to deletebookmarks.php</li>
+				<li>Bookmarks are edited by using an Ajax call which sends a POST request on submit to editbookmarks.php</li>
 			</ul>
 			<p>addbookmarks.php</p>
-			<ul>
-				<li>- Checks if the URL already exists for the logged in user</li>
-				<li>- If not, insert into the database using MYSQL</li>
+			<ul class="browser-default">
+				<li>Checks if the URL already exists for the logged in user</li>
+				<li>If not, insert into the database using MYSQL</li>
 			</ul>
 			<p>deletebookmark.php</p>
-			<ul>
-				<li>- Remove the given URL from the bookmarks table</li>
+			<ul class="browser-default">
+				<li>Remove the given URL from the bookmarks table</li>
 			</ul>
 			<p>editbookmark.php</p>
-			<ul>
-				<li>- Update the bookmark entry with the oldurl to the new url</li>
+			<ul class="browser-default">
+				<li>Update the bookmark entry with the oldurl to the new url</li>
 			</ul>
 			<p>logout.php</p>
-			<ul>
-				<li>- Called by the Logout button in the navigation bar whe logged in</li>
-				<li>- Deletes the session variables</li>
-				<li>- Redirect the user to the welcome.php page</li>
+			<ul class="browser-default">
+				<li>Called by the Logout button in the navigation bar whe logged in</li>
+				<li>Deletes the session variables</li>
+				<li>Redirect the user to the welcome.php page</li>
 			</ul>
 			<p>forbidden.php</p>
-			<ul>
-				<li>- Users are redirected here when the users try to access the PHP server scripts without POST variables</li>
+			<ul class="browser-default">
+				<li>Users are redirected here when the users try to access the PHP server scripts without POST variables</li>
 			</ul>
 			<p>database.php</p>
-			<ul>
-				<li>- Wrapper for creating MySQL requests easily</li>
-				<li>- A singleton class which has an instance of the database</li>
-				<li>- Contains the login info needed for database connection</li>
+			<ul class="browser-default">
+				<li>Wrapper for creating MySQL requests easily</li>
+				<li>A singleton class which has an instance of the database</li>
+				<li>Contains the login info needed for database connection</li>
 			</ul>
 			<p>database_init.php</p>
-			<ul>
-				<li>- Initializes the tables in the database</li>
-				<li>- Creates two tables: users and bookmarks</li>
-				<li>- The schema of the tables is:</li>
-				<li>- <img src="shared/img/dbschema.png"></img></li>
+			<ul class="browser-default">
+				<li>Initializes the tables in the database</li>
+				<li>Creates two tables: users and bookmarks</li>
+				<li>The schema of the tables is:</li>
+				<li><img src="shared/img/dbschema.png"></img></li>
 			</ul>
 
 			<b>Set up and running</b>
@@ -251,32 +251,32 @@
 
 				<b>JavaScript Functions: </b>
 				<p>loadnotes.js</p>
-				<ul>
-					<li>- Creates an XMLHttpRequest to do a GET call for the notes.xml file</li>
-					<li>- Uses DOMParser to parse the XML file and get elements by their tag name</li>
-					<li>- Dynamically create HTML elements such as divs, headers and paragraphs to display data from XML file</li>
+				<ul class="browser-default">
+					<li>Creates an XMLHttpRequest to do a GET call for the notes.xml file</li>
+					<li>Uses DOMParser to parse the XML file and get elements by their tag name</li>
+					<li>Dynamically create HTML elements such as divs, headers and paragraphs to display data from XML file</li>
 				</ul>
 				<p>buildQuiz()</p>
-				<ul>
-					<li>- Creates an XMLHttpRequest to do a GET call for the questions.xml file</li>
-					<li>- Uses DOMParser to parse the XML file and get elements by their tag name</li>
-					<li>- Check the type of question and then create HTML elements accordingly</li>
-					<li>- Stores the 'id' of every form element in a dictionary where key=id and value=question type for later use</li>
-					<li>- Store the correct answer in a list for later use</li>
-					<li>- Creates a button which calls back the checkAnswer() function on submit</li>
+				<ul class="browser-default">
+					<li>Creates an XMLHttpRequest to do a GET call for the questions.xml file</li>
+					<li>Uses DOMParser to parse the XML file and get elements by their tag name</li>
+					<li>Check the type of question and then create HTML elements accordingly</li>
+					<li>Stores the 'id' of every form element in a dictionary where key=id and value=question type for later use</li>
+					<li>Store the correct answer in a list for later use</li>
+					<li>Creates a button which calls back the checkAnswer() function on submit</li>
 				</ul>
 				<p>checkAnswer()</p>
-				<ul>
-					<li>- Iterates through the dictionary created in buildQuiz(). For each iteration, check the type of question (value)
+				<ul class="browser-default">
+					<li>Iterates through the dictionary created in buildQuiz(). For each iteration, check the type of question (value)
 						and obtain the user's answer depending on the type. The for the form element is given as the key of the dictionary</li>
-					<li>- After obtaining the answer, compare with the valid answers from the list created in buildQuiz()</li>
-					<li>- Increments score whenever the user gets the correct answer</li>
-					<li>- call printResult(score)</li>
+					<li>After obtaining the answer, compare with the valid answers from the list created in buildQuiz()</li>
+					<li>Increments score whenever the user gets the correct answer</li>
+					<li>call printResult(score)</li>
 				</ul>
 				<p>printResult()</p>
-				<ul>
-					<li>- Calculate the user's percentage by first getting the amount of questions and then dividing their score by the total amount</li>
-					<li>- Use a for loop to loop through the correct answers list to display the correct answers to the user</li>
+				<ul class="browser-default">
+					<li>Calculate the user's percentage by first getting the amount of questions and then dividing their score by the total amount</li>
+					<li>Use a for loop to loop through the correct answers list to display the correct answers to the user</li>
 				</ul>
 			</p>
 
