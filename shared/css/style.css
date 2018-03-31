@@ -9,3 +9,7 @@
 .register-form {
 	width: 280px;
 }
+
+.dropdown-form {
+	margin-bottom: 0em; !important
+}
