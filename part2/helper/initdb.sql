@@ -102,7 +102,7 @@ INSERT INTO `topics`
 `topicname`)
 VALUES
 ('1','{subtopic}
-  {header}1.1.0 Web History{/header}
+  {header}1.1.0 Web History{/header}{notes}{notes}
   {data}Moore\'s Law is a trend that states: Every year or two, the capacities of computers have doubled inexpensively{/data}
   {data}Computers and the Internet are being used in industry, research, health care, social good, communication, entertainment and more...{/data}
   {data}A bit is the smallest data item in a computer; it can have the value of 0 or 1{/data}
@@ -113,10 +113,10 @@ VALUES
   {data}One of W3C\'s primary goals is to make the web universally accessible - regardless of disability, language or culture{/data}
   {data}Technologies standardized by W3C are called Recommendations{/data}
   {data}Current recommendations include HTML5, CSS and XML{/data}
-{/subtopic}
+{/notes}{/subtopic}
 
 {subtopic}
-  {header}1.1.1 Web Servers{/header}
+  {header}1.1.1 Web Servers{/header}{notes}{notes}
   {data}A web page is nothing more than an HTML document. When the user tries to access a website, a web server locates the requested html file and sends it to the user\'s browser{/data}
   {data}HTML documents contain hyperlinks, which when clicked, loads a specified web document{/data}
   {data}Hyperlinks can also reference e-mail addresses by addressing mailto:emailAddress instead of a webpage URL{/data}
@@ -134,9 +134,9 @@ VALUES
   {data}Local web servers can be accessed through your computer\'s name or through \'localhost\' which translates to IP Address: 127.0.0.1{/data}
   {data}The Apache HTTP Server is currently the most popular web server{/data}
   {data}To access an html file called \'example.html\' in directory \'chapter/figure/\' in the local server, you must access the URL of the form: \'http://localhost/example.html\'{/data}
-{/subtopic}','Web'),
+{/notes}{/subtopic}','Web'),
 ('1','{subtopic}
-  {header}1.2.0 General Information{/header}
+  {header}1.2.0 General Information{/header}{notes}{notes}
   {data}HTML5 is a special type of computer language called a markup language{/data}
   {data}It\'s designed to specify the content and structure of web pages in a portable manner{/data}
   {data}HTML enables developers to create content that will render across a range of devices such as phones, computers, and tablets{/data}
@@ -147,9 +147,9 @@ VALUES
   {data}The body section contains the page\'s content, which the browser displays when the user visits the page{/data}
   {data}HTML5 documents delimit most elements with a start tag (&lt;html&gt;) and end tag (&lt;/html&gt;){/data}
   {data}Start tags may have attributes that provide additional information about the element. Each attribute has a name and value seperated by an equals sign (=){/data}
-{/subtopic}
+{/notes}{/subtopic}
 {subtopic}
-  {header}1.2.1 Elements{/header}
+  {header}1.2.1 Elements{/header}{notes}
   {data}Paragraph elements begin with &lt;p&gt; and end with &lt;/p&gt;{/data}
   {data}HTML5 provides six heading elements (h1 through h6) for specifiying relative importance of information. h1 is most significant while h6 is the least{/data}
   {data}The img element\'s src attribute specifies an image\'s location. Every image must have an alt attribute which contains text that is displayed if the client cannot render the image{/data}
@@ -158,23 +158,23 @@ VALUES
   {data}Each entry in the list is an li element{/data}
   {data}Ordered lists begin with a &lt;ol&gt; and end with &lt;/ol&gt;{/data}
   {data}HTML5 provides forms for collecting information from users{/data}
-{/subtopic}
+{/notes}{/subtopic}
 {subtopic}
-  {header}1.2.2 Forms{/header}
+  {header}1.2.2 Forms{/header}{notes}
   {data}Form elements have a method attribute which specifies how the form\'s data is sent to the web server{/data}
   {data}The action attribute of the form specifies the script to which the form data will be sent{/data}
   {data}HTML allows linking to another section of the same document by specifiying the element\'s id as the link\'s href{/data}
-{/subtopic}', 'HTML5'),
+{/notes}{/subtopic}', 'HTML5'),
 ('1','{subtopic}
-  {header}1.3.0 General Information{/header}
+  {header}1.3.0 General Information{/header}{notes}
   {data}Cascading Style Sheets (CSS) are used to specify the presentation or styling of elements on a web page{/data}
   {data}CSS was designed to style portable web pages independently of their content and structure{/data}
   {data}CSS allows the developer to easily change the look of the website by swapping out style sheets for another{/data}
   {data}Each CSS property is followed by a colon and the value of the attribute{/data}
   {data}Styles that are placed in a style element use selectors to apply style elements throughout the entire document{/data}
-{/subtopic}
+{/notes}{/subtopic}
 {subtopic}
-  {header}1.3.1 Embedded Style Sheets{/header}
+  {header}1.3.1 Embedded Style Sheets{/header}{notes}
   {data}Embedded style sheets enable you to embed a CSS document in an HTML5 document\'s head section{/data}
   {data}Styles that are placed in a style element use selectors to apply style elements throughout the document{/data}
   {data}The style sheet\'s body declares the CSS rules for the style sheet{/data}
@@ -182,9 +182,9 @@ VALUES
   {data}Style Classes define styles that can be applied to any element{/data}
   {data}Properties such as the font, font-weight and font-size can be applied through style sheets. {/data}
   {data}In many cases, styles applied to an elemnt also apply to the element\'s nested elements{/data}
-{/subtopic}
+{/notes}{/subtopic}
 {subtopic}
-  {header}1.3.2 External Style Sheets{/header}
+  {header}1.3.2 External Style Sheets{/header}{notes}
   {data}External style sheets are seperate documents that contain only CSS rules{/data}
   {data}When changes to the styles are required, you need to modify only a single CSS file. This concept is known as skinning{/data}
   {data}The link html element is used to link external style sheets{/data}
@@ -193,13 +193,13 @@ VALUES
 					color:  yellow;
 					background-color: navy; }
   {/data}
-{/subtopic}
+{/notes}{/subtopic}
 {subtopic}
-  {header}1.3.3 Backgrounds{/header}
+  {header}1.3.3 Backgrounds{/header}{notes}
   {data}CSS can control the backgrounds of block-level elements by adding Colors and Images{/data}
   {data}The background-image property specifies the URL of the image{/data}
   {data}The background-position property places the image on the page using values such as: top, bottom, center, left and right{/data}
-{/subtopic}', 'CSS');
+{/notes}{/subtopic}', 'CSS');
 
 INSERT INTO `topics`
 (`units_unitid`,
@@ -207,20 +207,20 @@ INSERT INTO `topics`
 `topicname`)
 VALUES
 ('2','{subtopic}
-      {header}2.0.0 General Information{/header}
+      {header}2.0.0 General Information{/header}{notes}
       {data}The &lt;script&gt; tag indicates to the browser that the text which follows is part of a script{/data}
       {data}Javascript is case sensitive{/data}
       {data}Every statement should end with a semicolon, although none is required by JavaScript{/data}
       {data}JS code is typically placed in a separate file then included in the HTML5 document that uses the script{/data}
-    {/subtopic}
+    {/notes}{/subtopic}
     {subtopic}
-      {header}2.0.1 Language Specifics{/header}
+      {header}2.0.1 Language Specifics{/header}{notes}
       {data}The keyword \'var\' is used to declare the names of variables{/data}
       {data}A variable name can be any valid identifier consisting of alphanumeric characters, underscores and dollar signs{/data}
       {data}The null keyword signifies that a variable has no value{/data}
-    {/subtopic}
+    {/notes}{/subtopic}
     {subtopic}
-      {header}2.0.2 Control Statements{/header}
+      {header}2.0.2 Control Statements{/header}{notes}
       {data}A procedure for solving a problem in terms of actions and order of actions is called an algorithm{/data}
       {data}A pseudo code is an informal language that helps you develop algorithms{/data}
       {data}JavaScript provides three selection structures: if statement, if..else statement and switch statement{/data}
@@ -233,9 +233,9 @@ VALUES
       {data}The for statement takes the initial value of the control variable, a loop-continuation variable, and an increment/decrement of control variable{/data}
       {data}When working with for or while loops, be careful about non-terminating loops. Make sure that the loop-continuation variable is going to terminate at some point{/data}
       {data}Break and continue statements are used to immediately exit or continue with the next statement in the sequence respectively{/data}
-    {/subtopic}
+    {/notes}{/subtopic}
     {subtopic}
-      {header}2.0.3 Functions{/header}
+      {header}2.0.3 Functions{/header}{notes}
       {data}Javascript provides several objects that have a rich collection of methods for performing calculatons, string manipulations, date and time, and manipulations of collections of data called arrays{/data}
       {data}The return statement passes information from a function back to the point in the program where it was called{/data}
       {data}Three ways to return conrol: reaching function-ending right brace, executing the statement return;, executing the statement return expression;{/data}
@@ -247,9 +247,9 @@ VALUES
       {data}JavaScript provides nine global functions as part of a Global object. This object contains global variables, user-defined functions and built-in global functions{/data}
       {data}A recursive function is a function that calls itself. It only knows how to solve a base case which then it returns a result{/data}
       {data}For a recursive function to eventually terminate, each call must be a simpler version of the original problem and converge to the base case{/data}
-    {/subtopic}
+    {/notes}{/subtopic}
     {subtopic}
-      {header}2.0.4 Arrays{/header}
+      {header}2.0.4 Arrays{/header}{notes}
       {data}Arrays are created using a comma-separated initializer list enclosed in square brackets([]){/data}
       {data}Initial values of an array can be specified as arguments in the parentheses following new Array{/data}
       {data}There are two pays to pass arguments to functions: pass-by-value and pass-by-reference{/data}
@@ -257,9 +257,9 @@ VALUES
       {data}Pass-by-reference gives the called function access to the data and allows the function to modify the data{/data}
       {data}Objects and arrays are passed by reference{/data}
       {data}JavaScript offers methods for joining, sorting and searching Arrays{/data}
-    {/subtopic}
+    {/notes}{/subtopic}
     {subtopic}
-      {header}2.0.5 Events{/header}
+      {header}2.0.5 Events{/header}{notes}
       {data}Events allow scripts to respond to user interactions and modify the page accordingly{/data}
       {data}An event handler is a function that responds to an event{/data}
       {data}Method addEventListener can be called on a DOM node to register event-handling method for an event. This can be done multiple times{/data}
@@ -267,7 +267,7 @@ VALUES
       {data}Typical events that are used are start, mouseMove, mouseover, mouseout, focus and blur{/data}
       {data}Event bubbling is the process whereby events fired on child elements \'bubble\' up to their parent elements{/data}
       {data}Both the child and then parents event handlers are called when the event is fired on a child element{/data}
-    {/subtopic}
+    {/notes}{/subtopic}
 ','JavaScript');
 
 INSERT INTO `topics`
@@ -276,61 +276,61 @@ INSERT INTO `topics`
 `topicname`)
 VALUES
 ('3','{subtopic}
-      {header}3.0.0 General Information{/header}
+      {header}3.0.0 General Information{/header}{notes}
       {data}XML is a portable open technology for data storage and exchange{/data}
       {data}XML allows authors to create markup for any time of information{/data}
       {data}An XML parser is responsible for identifying components of XML documents and storing it inside a data structure{/data}
-    {/subtopic}
+    {/notes}{/subtopic}
     {subtopic}
-      {header}3.0.1 Structuring Data{/header}
+      {header}3.0.1 Structuring Data{/header}{notes}
       {data}XML documents contain elements like html elements{/data}
       {data}XML is a tree like structure, where a parent can have multiple child elements{/data}
       {data}The root element of an XML document encompasses all its other elements{/data}
-    {/subtopic}
+    {/notes}{/subtopic}
     {subtopic}
-      {header}3.0.2 XML Schema Documents{/header}
+      {header}3.0.2 XML Schema Documents{/header}{notes}
       {data}XML schemas specifies what type of data an element can contain{/data}
       {data}XML schemas are used to verify the XML document{/data}
       {data}Two categories of types exist in XML schema: simple types and complex types{/data}
-    {/subtopic}
+    {/notes}{/subtopic}
     {subtopic}
-      {header}3.0.3 Extensible Stylesheet Language (XSL){/header}
+      {header}3.0.3 Extensible Stylesheet Language (XSL){/header}{notes}
       {data}XSL sheets converts XML into a text-based document{/data}
       {data}XSL selectively navigates the source tree using XPath\'s select and match attributes{/data}
       {data}XSL sheets are connected directly to an XML document by adding an instruction to the XML document{/data}
       {data}Functions are given such as value-of and for-each to transform the XML element to a readable object{/data}
-    {/subtopic}
+    {/notes}{/subtopic}
     {subtopic}
-      {header}3.0.4 Document Object Model{/header}
+      {header}3.0.4 Document Object Model{/header}{notes}
       {data}Some XML parsers store document data as tree structures in memory{/data}
       {data}This heirarchical structure is called a Document Object Model (DOM) tree{/data}
       {data}Each element name is represented by a node{/data}
       {data}A parent node can have many children but a child can only have one parent node{/data}
       {data}A node has properties that allows the developer to grab information about the node such as : nodeName, childNodes, nodeValue and so on..{/data}
       {data}The tree helps the developers traverse the XML document easily while obtaining properties of each node{/data}
-    {/subtopic}
+    {/notes}{/subtopic}
 ', 'XML'),
 ('3','{subtopic}
-      {header}3.1.0 General Information{/header}
+      {header}3.1.0 General Information{/header}{notes}
       {data}Ajax applications separate client-side user interaction and server communication so that it can run them in parallel{/data}
       {data}Raw Ajax uses JavaScript to send asynchronous requests to the server, then update the page using DOM{/data}
       {data}The client creates an XMLHttpRequest object to manage a request and then sends it to the server{/data}
       {data}The request object invokes a callback function that typically updates to display the returned data without reloading the entire page{/data}
-    {/subtopic}
+    {/notes}{/subtopic}
     {subtopic}
-      {header}3.1.1 Exception Handling{/header}
+      {header}3.1.1 Exception Handling{/header}{notes}
       {data}An exception is an indication that a problem has occured during program execution{/data}
       {data}Exception handling enables you to create applications that can resolve the exceptions{/data}
       {data}the try{} block encloses code that might cause an eception{/data}
       {data}A catch{} block followed by an exception parameter handles an exception{/data}
-    {/subtopic}
+    {/notes}{/subtopic}
     {subtopic}
-      {header}3.1.2 JSON{/header}
+      {header}3.1.2 JSON{/header}{notes}
       {data}JavaScript Object Notation is a way to represent objects as strings{/data}
       {data}In a JSON file, objects are represented as a list of property names and their values{/data}
       {data}JSONs contains arrays and strings{/data}
       {data}Typically, Web Services respond to requests by sending JSON data to the requester{/data}
-    {/subtopic}
+    {/notes}{/subtopic}
 ', 'Ajax');
 
 INSERT INTO `quizzes`

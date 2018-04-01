@@ -27,13 +27,8 @@ if (!isset($_SESSION['loggeduser'])) {
 							$units = DB::run('SELECT * from units where courses_courseid=?', [$row['courseid']]);
 							while ($unit = $units->fetch(PDO::FETCH_LAZY))
 							{
-								/* echo '<div class="collapsible-body"> */ 
-								/* 	<a class="modal-trigger" href="#myModal"' . $unit['unitid'] . '>' */ 
-								/* 	. $unit['unitname'] . '</a> </div>'; */
-								echo '<div class="collapsible-body"> <form class="dropdown-form" action="server/loadtopic.php" method="post">
-									<a onclick="submitForm(this)" href="#">' . $unit['unitname'] . '</a>
-									<input id="hiddenId" type="hidden" name="unitid" value="'. $unit['unitid'] . '">
-									</form>
+								echo '<div class="collapsible-body">
+									<a onclick="submitForm(this)" href="#" id=' . $unit['unitid'] . '>' . $unit['unitname'] . '</a>
 									</div>';
 							}
 							echo '</li>';
@@ -50,18 +45,9 @@ if (!isset($_SESSION['loggeduser'])) {
 			</ul>
 		</div>
 	</div>
-	<div id="myModal" class="modal modal-fixed-footer">
-		<div class="modal-content">
-		<h4>Modal Header</h4>
-		<p>A bunch of text</p>
-		</div>
-		<div class="modal-footer">
-		<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
-		</div>
-	</div>
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="../shared/js/materialize.min.js"></script>
-<script type="text/javascript" src="js/init.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../shared/js/materialize.min.js"></script>
+	<script type="text/javascript" src="js/init.js"></script>
 </body>
 
 </html>
