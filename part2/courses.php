@@ -34,7 +34,7 @@ if (!isset($_SESSION['loggeduser'])) {
 					}
 				}
 				else {
-					header('Location: notlogged.php');
+					header('Location: server/notlogged.php');
 				}
 				?>
 			</ul>

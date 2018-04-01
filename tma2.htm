@@ -9,75 +9,333 @@
 	<body class="grey lighten-2">
 
 		<div class="container center">
-			<h3>COMP 466 - Advanced Technologies for Web-Based Systems</h1>
-			<h4>Assignment 2</h2>
-			<h5>Lorenzo Zafra - 3356915</h3>
-			<h6><b>Date began:</b> March 28, 2018</h4>
-			<h6><b>Date completed:</b> April x, 2018</h4>
-			<h6><b>Estimated hours spent:</b> x hours</h4>
+			<h3>COMP 466 - Advanced Technologies for Web-Based Systems</h3>
+			<h4>Assignment 2</h4>
+			<h5>Lorenzo Zafra - 3356915</h5>
+			<h6><b>Date began:</b> March 28, 2018</h6>
+			<h6><b>Date completed:</b> April 3, 2018</h6>
+			<h6><b>Estimated hours spent:</b> 24 hours</h6>
 		</div>
 
 		<hr>
 		<div class="container">
 			<h4>Part 1 - Bookmark Manager</h4>
-			<a href="part1/welcome.php"><b>Click here to access part 1</b></a><br>
-			<b>Description</b>
-			<p>
-				For this project, you will be using MySQL and PHP to develop a web application that provides an online bookmarking service to users on the Internet. The requirements are as follows:
-				<ul class="browser-default">
-					<li>The web application should have a good thoughtful interface, with menus and navigation buttons as needed.</li>
-					<li>It should have a name or logo shown across all the pages.</li>
-					<li>It should begin with a welcome or greeting message and a list of ten most popular websites that people have bookmarked.</li>
-					<li>Once signed in, a list of bookmarks should be displayed, and the user can browse any web site in the list in a new browser tab or window by clicking the URL.</li>
-					<li>The user will also be able to add new websites to the list and edit and delete any of the existing ones in the list;</li>
-					<li>When adding or editing, user input needs to be validated using JavaScript, to make sure the URLs are correct and active.</li>
-				</ul>
-			</p>
 
-			<b>My interpretation</b>
-			<p>
-				The goal for this part of the assignment is to create a web application that has a well thought out interface and easy to use. The web application should 
-				have a navigation bar that allows the user to traverse through all the parts of the application easily. Also, there should be a welcome message and a list
-				of the top 10 most bookmarked URL. This requirement implies that we need to use a database so that the information is stored for all users. <br>
-				Users should be allowed to sign in and add, edit or delete bookmarks. When adding, we should verify the URL to make sure it is a valid URL.
-			</p>
+			<h5 class="teal-text">Links</h5>
+			<p>Local: <a href="part1/welcome.php"><b>click here for part 1</b></a></p>
+			<p>Live Server: <a href="#"><b>click here for part 1</b></a></p>
 
-			<b>Analysis and Design of the Web Application</b>
-			<p>
-			To create the web application, I used a MySQL database to store information about users (username, password) and bookmarks (user, URL). To create the welcome page, 
-			I used HTML elements inside a php script. This php script first checks if there is a session that is currently logged. If so, I redirect them to the main page where the 
-			user is allowed to add, edit and delete bookmarks. 
-			<br><br>
+			<p>If the live server link does not work, the host may have gone down. Please contact me at 
+				<a href="mailto:zafra@ualberta.ca">zafra@ualberta.ca</a></p>
 
-			When the welcome page is loaded, I do a MySQL query to retrieve the top 10 most bookmarked URLs then display them dynamically to the user. 
-			Also, from this page, the user can log in using the form. The form sends a post request to a php script 'server/login.php' with the username 
-			and an MD5 hashed password appended to the POST request. The php script then takes the username and the hashed password to check if this pair exists in the database
-			if so, they are logged in and I set a session variable to hold the username.
+		<h5 class="teal-text">Description</h5>
+		<p>
+			For this project, you will be using MySQL and PHP to develop a web application that provides an online bookmarking service to users on the Internet. The requirements are as follows:
+			<ul class="browser-default">
+				<li>The web application should have a good thoughtful interface, with menus and navigation buttons as needed.</li>
+				<li>It should have a name or logo shown across all the pages.</li>
+				<li>It should begin with a welcome or greeting message and a list of ten most popular websites that people have bookmarked.</li>
+				<li>Once signed in, a list of bookmarks should be displayed, and the user can browse any web site in the list in a new browser tab or window by clicking the URL.</li>
+				<li>The user will also be able to add new websites to the list and edit and delete any of the existing ones in the list;</li>
+				<li>When adding or editing, user input needs to be validated using JavaScript, to make sure the URLs are correct and active.</li>
+			</ul>
+		</p>
+
+		<h5 class="teal-text">My interpretation</h5>
+		<p>
+			The goal for this part of the assignment is to create a web application that has a well thought out interface and easy to use. The web application should 
+			have a navigation bar that allows the user to traverse through all the parts of the application easily. Also, there should be a welcome message and a list
+			of the top 10 most bookmarked URL. This requirement implies that we need to use a database so that the information is stored for all users. <br>
+			Users should be allowed to sign in and add, edit or delete bookmarks. When adding, we should verify the URL to make sure it is a valid URL.
+		</p>
+
+		<h5 class="teal-text">Analysis and Design of the Web Application</h5>
+		<p>
+		To create the web application, I used a MySQL database to store information about users (username, password) and bookmarks (user, URL). To create the welcome page, 
+		I used HTML elements inside a php script. This php script first checks if there is a session that is currently logged. If so, I redirect them to the main page where the 
+		user is allowed to add, edit and delete bookmarks. 
+		<br><br>
+
+		When the welcome page is loaded, I do a MySQL query to retrieve the top 10 most bookmarked URLs then display them dynamically to the user. 
+		Also, from this page, the user can log in using the form. The form sends a post request to a php script 'server/login.php' with the username 
+		and an MD5 hashed password appended to the POST request. The php script then takes the username and the hashed password to check if this pair exists in the database
+		if so, they are logged in and I set a session variable to hold the username.
+		<br>
+		Similarly, the user is able to register for an account by using the form which submits a POST request to 'server/register.php'.
+		The php script first checks the database if the given username is taken. If not, we hash the password and then store the pair into the database.
+		<br><br>
+
+		When logged in, main.php makes a MySQL query for all the bookmarks that belongs to the logged in user. We then display these bookmarks
+		dynamically. When adding bookmarks, I used a JavaScript to verify that the URL given is in correct form. Then,
+		the form sends a POST request to 'server/addbookmarks.php' which first checks if the URL is taken. If so,
+		the POST request redirects the user back to the main.php page with a parameter to show that there is an error. If there is no duplicate, we insert
+		the URL to the bookmarks table with the userid. 
+		<br><br>
+
+		Similarly, to delete or edit a bookmark, the buttons have a listener which calls a PHP script via an Ajax call. These PHP scripts either 
+		delete or update values in the database depending on which button is selected. 
+
+		</p>
+
+		<h5 class="teal-text">Documentation</h5>
+		<p>
+		Using Materialize CSS, we are able to create an aesthetically pleasing user interface.
+		Also, every page has a navigation bar which links to the home page and other pages.
+		</p>
+		<br><br>
+
+		<h6><b>PHP files</b></h6>
+		<p>registerpage.php</p>
+		<ul class="browser-default">
+			<li>A form where the user inputs a username and password</li>
+			<li>Form creates a POST request and sends the username / password to `server/register.php`</li>
+		</ul>
+		<p>register.php</p>
+		<ul class="browser-default">
+			<li>PHP script which handles registring the user. Called by a POST request</li>
+			<li>Retrieves username/password from the request, then hashes the password</li>
+			<li>Checks first if username is taken. If not, insert the pair into the database</li>
+			<li>If username is taken, redirect user back to register page with an error</li>
+		</ul>
+		<p>welcome.php</p>
+		<ul class="browser-default">
+			<li>PHP script which displays a login form and the top 10 most bookmarked URLs</li>
+			<li>Top 10 list is retrieved by using a MySQL query to the bookmarks table</li>
+			<li>Login form creates a POST request to 'server/login.php' on submit</li>
+		</ul>
+		<p>login.php</p>
+		<ul class="browser-default">
+			<li>Retrieves username/password from request</li>
+			<li>Hash password and compare with the values in the database</li>
+			<li>If compare is successful, set session variable to the username and redirect them to the main.php page</li>
+			<li>If unsuccessful, redirect them back to the welcome.php page with an error</li>
+		</ul>
+		<p>main.php</p>
+		<ul class="browser-default">
+			<li>The main page for when the user is logged in</li>
+			<li>From here, user is able to add, edit or delete bookmarks</li>
+			<li>Dynamically creates bookmark list using php and a MySQL query</li>
+			<li>Adding bookmarks calls the main.js script which verifies that the URL is in correct form</li>
+			<li>Bookmarks are added by using a form which sends a POST request on submit to addbookmarks.php</li>
+			<li>Bookmarks are deleted by using an Ajax call which sends a POST request on submit to deletebookmarks.php</li>
+			<li>Bookmarks are edited by using an Ajax call which sends a POST request on submit to editbookmarks.php</li>
+		</ul>
+		<p>addbookmarks.php</p>
+		<ul class="browser-default">
+			<li>Checks if the URL already exists for the logged in user</li>
+			<li>If not, insert into the database using MYSQL</li>
+		</ul>
+		<p>deletebookmark.php</p>
+		<ul class="browser-default">
+			<li>Remove the given URL from the bookmarks table</li>
+		</ul>
+		<p>editbookmark.php</p>
+		<ul class="browser-default">
+			<li>Update the bookmark entry with the oldurl to the new url</li>
+		</ul>
+		<p>logout.php</p>
+		<ul class="browser-default">
+			<li>Called by the Logout button in the navigation bar whe logged in</li>
+			<li>Deletes the session variables</li>
+			<li>Redirect the user to the welcome.php page</li>
+		</ul>
+		<p>forbidden.php</p>
+		<ul class="browser-default">
+			<li>Users are redirected here when the users try to access the PHP server scripts without POST variables</li>
+		</ul>
+		<p>database.php</p>
+		<ul class="browser-default">
+			<li>Wrapper for creating MySQL requests easily</li>
+			<li>A singleton class which has an instance of the database</li>
+			<li>Contains the login info needed for database connection</li>
+		</ul>
+		<p>database_init.php</p>
+		<ul class="browser-default">
+			<li>Initializes the tables in the database</li>
+			<li>Creates two tables: users and bookmarks</li>
+			<li>The schema of the tables is:</li>
+			<li><img src="shared/img/dbschema.png" height="300" width="800"></img></li>
+		</ul>
+
+		<h5 class="teal-text">Set up and running</h5>
+		<p>
+		First, you need to have an apache and mysql stack running. This can be setup using XAMPP. I followed
+		the tutorial found <a href="https://blog.udemy.com/xampp-tutorial/">here.</a>
+		<br>
+		Move or copy all the files from this directory (TMA2) to the XAMPP stack's 'htdocs' folder.
+		<br>
+		Then, the MySQL database needs to be set-up. To do this, create a database called 'bmmanager' in your
+		MySQL stack and a user with the following credentials: username/pass = 'comp466admin'/'password'. This user
+		needs to have permission to the 'bmmanager' database. The tables needed for this database are initialized
+		on the first run of welcome.php.
+		<br><br>
+
+		To access welcome php, open 'welcome.php' path on your browser. For example, assuming you have already
+		moved the 'TMA2' directory to the 'htdocs' folder, go to the URL: 'localhost/TMA2/part1/welcome.php'.
+		Or <a href="part1/welcome.php"><b>click here to access part 1</b></a><br>
+		<p>You may also access the live server linked <a href="#"><b>here</b></a></p>
+		</p>
+	</div>
+
+	<hr>
+	<div class="container">
+		<h4>Part 2 - Online Learning Management System</h4>
+		<h5 class="teal-text">Links</h5>
+		<p>Local: <a href="part2/welcome.php"><b>click here for part 2</b></a></p>
+		<p>Live Server: <a href="#"><b>click here for part 2</b></a></p>
+		<p>If the live server link does not work, the host may have gone down. Please contact me at 
+			<a href="mailto:zafra@ualberta.ca">zafra@ualberta.ca</a></p>
+
+		<h5 class="teal-text">Description</h5>
+		<p>
+			In this part of the assignment, you are required to develop a small-scale online learning management system that can be used to deliver online courses
+			to learners. <br><br>
+			To that end, you will have to think about what these online courses are, how they can they be developed and how they should be 
+			stored on the web server, how they can be retrieved from the server, how they should be delivered to a web browser, and then rendered/presented 
+			properly on the web browser. <br><br>
+			The development of online courses is the collaboration of efforts of subject matter experts (SMEs) and experts in computing and web technology. 
+			It is very common that those SMEs do not know much about computing, and don't know how to use HTML and other web technologies needed to present an 
+			attractive course, but they should be quite comfortable with languages and terms used in education. So, the first technical step you need to take is to
+			design a SME-friendly language for marking up educational materials, EML in our term (just another XML like you created for marking up your resume), 
+			for the SMEs to use. The EML you design may be a comprehensive one for marking up the contents for an entire course, or several languages in small scale 
+			for different components of a course. For example, you may have an EML for a lesson/lecture delivered in just a teaching/learning session, an EML for 
+			marking up quizzes, and an EML for marking up assignments, etc. You may look at some existing languages by searching for educational markup language in 
+			Google or other search engine. <br><br>
+
+			After SMEs (for this assignment, you will be the SME) have written the course contents in your EML(s), 
+			the documents must be stored on the server before they can be delivered to the learners on the web. 
+			You may think that you can save each of the documents written in your EML as a file, like the resume file you wrote for assignment 1, 
+			but this is not practical. Files may work when there is just one or only a few learning documents, but when there are many, 
+			as happens in practical situations, the documents become unmanageable. That's why we need a database. <br><br>
+			The next technical step is to design the database table or tables. Over the years, I have seen different designs from students in the course. 
+			The most simple and straightforward one is to have a single table. In the table each row contains information for a lesson or quiz, 
+			including the actual content written in your EML. To make the learning contents retrievable and manageable, you will need fields to identify 
+			the course and the unit the lesson or quiz belongs to. You may also keep the details of the courses and units in the same table for the 
+			purpose of this assignment project, though you wouldn't do that in practice because it is really inefficient; in a real world situation 
+			is to have separate tables to store information about courses and units. <br><br>
+			To deliver the course contents (lessons and quizzes in our context), you will need to navigate through the database to 
+			find the right lesson or quiz that the learner has requested, and them retrieve the actual content in EML. For the content to be 
+			properly rendered or presented on learner's browser, you need to translate the content in your EML to HTML. We call this process parsing. 
+			Instead of using XSLT as you did for the first assignment, parsing EML to HTML needs to be done with PHP. So, the last important technical 
+			step for this project is to write a parser in PHP. <br><br>
+		</p>
+
+		<h5 class="teal-text">My interpretation</h5>
+		<p>
+			This assignment requires us to design an application for an online learning system from the ground up. This means designing the markup for the 
+			course contents, the parser for this markup language, the database schema for the application, the user-interface and the backend server. <br>
+			We are to assume that the subject matter experts (SME)s do not know much about computing and HTML but they know how to use the markup language we design.
+			Therefore, the course contents should be transformed from the mark up language to HTML for the students to view. <br><br>
+
+			This transformation is done by a parser (RegEX implementation). The course contents are stored in the database so that it can be delivered to any
+			learners on the web. Similar to assignment 1 part 2, there should be course content and a quiz at the end of each unit. The quiz should also be stored 
+			in a database.
+		</p>
+
+		<h5 class="teal-text">Analysis and Design of the Web Application</h5>
+		<p> The design for login and registration of this web application is the same as in part 1 so it has been redacted here.</p>
+		<p> 
+			When a user logs in, they are presented with the courses that they are registered in. If they are not registered, they are invited to
+			open the 'Register' tab where they can see all the available courses that they can register to. <br>
+			When they register to a course, they are redirected to the 'My Courses' page where they can view the and select a unit
+			for the course. Both of these lists are created dynamically using PHP and MySQL queries. <br><br>
+
+			When a user selects a unit, the client sends a POST request to a php script containing the unit id that is selected. This php script
+			then queries the database for the topics that are related to the unit. The database returns the content in the Educational Markup Language (EML)
+			that I designed which is describe more detailed below. <br><br>
+
+			To transform the content, I parse the EML using PHP and PHP's regex library. The parser takes in the raw EML and returns an associative array containing the
+			topic name, the subtopic header and the data for each subtopic. <br>
+			When the user finishes reading the unit, they are met with a 'Take the quiz' button which similarly sends a POST request to another php script.
+			The php script queries the database for the quiz contents which is stored in the EML form that is described below. Again, this EML is parsed using regex
+			and is displayed to the user. <br><br>
+
+			The parser returns an associative array which contains the type of the question (multiple choice, select all or true or false), the question itself, 
+			the possible choices, and the correct answer. Then, a JavaScript is used to create the quiz dynamically similar to my design in Assignment 1 Part 2. <br>
+		</p>
+
+		<h6><b>Dataflow</b></h6>
+		<p>
+			In general, the data moves in the following order: 
+			<br>User input -&gt; Client Scripts -&gt; POST request to PHP script -&gt; Database -&gt; Server (for Parser/Processing) -&gt; Back to client<br>
+
+			All the data is stored in the database, therefore all the requests go to a MySQL database.
+		</p>
+
+
+		<h6><b>Important Modules</b></h6>
+		<p>
+			The 'helper' directory contains modules that interface the data of the webapplication to the client. The 'database.php' module is 
+			used as a wrapper to create MySQL queries and return objects. The 'parser.php' module is used to parse the content in EML to return an associative array. <br>
 			<br>
-			Similarly, the user is able to register for an account by using the form which submits a POST request to 'server/register.php'.
-			The php script first checks the database if the given username is taken. If not, we hash the password and then store the pair into the database.
-			<br><br>
 
-			When logged in, main.php makes a MySQL query for all the bookmarks that belongs to the logged in user. We then display these bookmarks
-			dynamically. When adding bookmarks, I used a JavaScript to verify that the URL given is in correct form. Then,
-			the form sends a POST request to 'server/addbookmarks.php' which first checks if the URL is taken. If so,
-			the POST request redirects the user back to the main.php page with a parameter to show that there is an error. If there is no duplicate, we insert
-			the URL to the bookmarks table with the userid. 
-			<br><br>
+			The 'server' directory contains PHP scripts that are accessed by POST requests. These scripts contains actions that allow the client to store or get information
+			from the database. <br><br>
 
-			Similarly, to delete or edit a bookmark, the buttons have a listener which calls a PHP script via an Ajax call. These PHP scripts either 
-			delete or update values in the database depending on which button is selected. 
+			The php files in the main directory contains the client code which is responsible for displaying the User Interface and creating elements dynamically. The client code
+			is also responsible for creating forms that allow the client to talk to the server.
+		</p>
 
-			</p>
+		<h6><b>Educational Markup Language</b></h6>
+		<b>Course Topics</b>
+		<p>
+			Each topic in the course is enclosed by a {subtopic} {/subtopic} tag. <br> 
+			Within a subtopic tag contains a header (enclosed by {header}) and its notes (enclosed by {notes}). <br>
+			The notes section contains multiple child elements that is enclosed by {data}. These data elements holds the information for the subtopics.
+			<br>
+			For example:  <br>
+			<img src="shared/img/emltopic.png" height="300" width="700">
+		</p>
+		<b>Quizzes</b>
+		<p>
+			Each question in the quiz is enclosed by a {question} tag. <br>
+			Within the question tag contains the type of the queston, the prompt and the correct answer which are enclosed by {type}, {prompt}, and {answer} respectively. <br>
+			For multiple choice, select and true or false questions, there is a {choices} tag which contains the possible choices for the question. <br>
+			For example:  <br>
+			<img src="shared/img/emlquiz.png" height="300" width="700">
+		</p>
 
-			<b>Documentation</b>
-			<p>
-			Using Materialize CSS, we are able to create an aesthetically pleasing user interface.
-			Also, every page has a navigation bar which links to the home page and other pages.
-			</p>
-			<br><br>
+		<h6><b>Database Schema</b></h6>
+		<img src="shared/img/dbschemapt2.png" height="400" width="800">
+		<p>
+			For the application, I created 7 tables.
+			<ul class="browser-default">
+				<li>users</li>
+				<ul class="browser-default">
+					<li>Table to hold the username and hashed passwords of learners</li>
+				</ul>
+				<li>courses</li>
+				<ul class="browser-default">
+					<li>Table to hold the courses for the system</li>
+				</ul>
+				<li>users_has_courses</li>
+				<ul class="browser-default">
+					<li>Table to represent many-to-many relationship between users and courses</li>
+				</ul>
+				<li>units</li>
+				<ul class="browser-default">
+					<li>Table to hold the units that belong to each course</li>
+				</ul>
+				<li>topics</li>
+				<ul class="browser-default">
+					<li>Table to hold the topics that belong to each unit</li>
+				</ul>
+				<li>media</li>
+				<ul class="browser-default">
+					<li>Table to hold images or videos</li>
+					<li>Uses a BLOB class which is a bit representation of the image or video</li>
+				</ul>
+				<li>quizzes</li>
+				<ul class="browser-default">
+					<li>Table to hold information the content for the quizzes for each unit</li>
+				</ul>
+			</ul>
+		</p>
 
-			<b>PHP files</b>
+		<h5 class="teal-text">Documentation</h5>
+		<p>
+			The functions used in this web application are the same functions used and documented for part 1 of this assignment.
+			<h6><b>PHP files</b></h6>
 			<p>registerpage.php</p>
 			<ul class="browser-default">
 				<li>A form where the user inputs a username and password</li>
@@ -92,8 +350,6 @@
 			</ul>
 			<p>welcome.php</p>
 			<ul class="browser-default">
-				<li>PHP script which displays a login form and the top 10 most bookmarked URLs</li>
-				<li>Top 10 list is retrieved by using a MySQL query to the bookmarks table</li>
 				<li>Login form creates a POST request to 'server/login.php' on submit</li>
 			</ul>
 			<p>login.php</p>
@@ -106,25 +362,29 @@
 			<p>main.php</p>
 			<ul class="browser-default">
 				<li>The main page for when the user is logged in</li>
-				<li>From here, user is able to add, edit or delete bookmarks</li>
-				<li>Dynamically creates bookmark list using php and a MySQL query</li>
-				<li>Adding bookmarks calls the main.js script which verifies that the URL is in correct form</li>
-				<li>Bookmarks are added by using a form which sends a POST request on submit to addbookmarks.php</li>
-				<li>Bookmarks are deleted by using an Ajax call which sends a POST request on submit to deletebookmarks.php</li>
-				<li>Bookmarks are edited by using an Ajax call which sends a POST request on submit to editbookmarks.php</li>
+				<li>Contains a navigation bar to MyCourses, Register and Logout</li>
+				<li>This page lists the courses that the user is registered to in a dropdown</li>
+				<li>When the dropdown is selected, a user is shown a list of units which links to the course content</li>
 			</ul>
-			<p>addbookmarks.php</p>
+			<p>courses.php</p>
 			<ul class="browser-default">
-				<li>Checks if the URL already exists for the logged in user</li>
-				<li>If not, insert into the database using MYSQL</li>
+				<li>Page that shows all the courses that is available but the user has not registered for</li>
+				<li>When a dropdown is selected, the user is shown the description of the course and a register button</li>
+				<li>The button sends a POST request to 'registerclass.php' which inserts an entry in the users_has_courses table in the database</li>
 			</ul>
-			<p>deletebookmark.php</p>
+			<p>loadtopic.php</p>
 			<ul class="browser-default">
-				<li>Remove the given URL from the bookmarks table</li>
+				<li>Page which displays the topics for the Unit selected by the user</li>
+				<li>Makes an SQL query to the database for each topic and its contents</li>
+				<li>The contents are parsed by my parser to obtain an associated list of the topics</li>
+				<li>Dynamically creates HTML elements using the information in the list</li>
 			</ul>
-			<p>editbookmark.php</p>
+			<p>quiz.php</p>
 			<ul class="browser-default">
-				<li>Update the bookmark entry with the oldurl to the new url</li>
+				<li>Similar to loadtopic.php</li>
+				<li>Displays the quiz for the selected topic</li>
+				<li>Makes an SQL query, then send the content to the parser to create an array which is used to display quiz elements</li>
+				<li>Uses 'js/quiz.js' to dynamically create HTML elements. This same JavaScript was what I used in Assignment 1 Part 2 with small edits.</li>
 			</ul>
 			<p>logout.php</p>
 			<ul class="browser-default">
@@ -142,161 +402,45 @@
 				<li>A singleton class which has an instance of the database</li>
 				<li>Contains the login info needed for database connection</li>
 			</ul>
-			<p>database_init.php</p>
+			<p>parser.php</p>
 			<ul class="browser-default">
-				<li>Initializes the tables in the database</li>
-				<li>Creates two tables: users and bookmarks</li>
-				<li>The schema of the tables is:</li>
-				<li><img src="shared/img/dbschema.png"></img></li>
+				<li>contains two functions used for parsing the course content from EML to an array</li>
+				<li>parseContent() parses the EML for topics in the format described above</li>
+				<li>parseQuiz() parses the EML for quizzes in the format described above</li>
 			</ul>
+		</p>
 
-			<b>Set up and running</b>
-			<p>
+		<h5 class="teal-text">Set up and running</h5>
+		<p>
 			First, you need to have an apache and mysql stack running. This can be setup using XAMPP. I followed
 			the tutorial found <a href="https://blog.udemy.com/xampp-tutorial/">here.</a>
 			<br>
 			Move or copy all the files from this directory (TMA2) to the XAMPP stack's 'htdocs' folder.
 			<br>
-			Then, the MySQL database needs to be set-up. To do this, create a database called 'bmmanager' in your
-			MySQL stack and a user with the following credentials: username/pass = 'comp466admin'/'password'. This user
-			needs to have permission to the 'bmmanager' database. The tables needed for this database are initialized
-			on the first run of welcome.php.
+			<b>IMPORTANT</b> <br>
+			To initialize the database, login to your mysql shell using the root username and password. 
+			When logged in, source the sql file located in 'helper/initdb.sql' to initialize the tables and to
+			load in the first set of data for the demo. <br>
+			Create a user with the following credentials: username/pass = 'comp466admin'/'password'. This user
+			needs to have 'GRANT ALL PRIVILEGES' to the database. <br>
+
 			<br><br>
 
-			To access welcome php, open 'welcome.php' path on your browser. For example, assuming you have already
-			moved the 'TMA2' directory to the 'htdocs' folder, go to the URL: 'localhost/TMA2/part1/welcome.php'.
-			</p>
-		</div>
+			To access the login screen, open 'welcome.php' path on your browser. For example, assuming you have already
+			moved the 'TMA2' directory to the 'htdocs' folder, go to the URL: 'localhost/TMA2/part2/welcome.php'.
+			Or <a href="part2/welcome.php"><b>click here to access part 1</b></a><br>
 
-		<hr>
-		<div class="container">
-			<h4>Part 2 - Lecture & Quiz Documentation</h4>
-			<a href="part2/index.html"><b>Click here to access part 2</b></a><br>
-			<b>Description</b>
-			<p>
-				Using the web technologies you have learned so far, including
-				HTML5, CSS3, JavaScript, XML and Ajax, write a web application,
-				that can help people to learn the technologies covered in
-				Unit 1, Unit 2, or Unit 3 of the course.
+			<p>You may also access the live server linked <a href="#"><b>here</b></a></p>
+		</p>
 
-				The requirements are detailed as follows:
-				<ol>
-					<li>It must be a web-based system with a name you choose, a banner to show off your work, navigation menus and buttons. It should begin with a welcome page to greet the users, to explain what the application does, and what they get from it, and how they should proceed.</li>
-					<li>The application must have three pages of tutorials, accessible through navigation menus or buttons, to teach the technologies covered in Unit 1, Unit 2 and Unit 3 respectively. You don't need to teach everything, but there should be enough content to make each of the tutorials useful.</li>
-					<li>There should be a quiz for each tutorial, which can be accessed right after the tutorial page, as well as through the navigation menus and buttons of the system.</li>
-					<li>After the submission button is hit, the quiz system should be able to grade the answers the learner has provided, show the correct answers as well as the score in percentage.</li>
-					<li>The quiz system should be designed so that questions can be easily edited, added, or deleted, and new quiz can be easily created.</li>
-					<li>You should do your best to use the web technologies covered in Unit 1, unit 2 and Unit 3, including HTML5, CSS3, JavaScript, XML and Ajax.</li>
-					<li>Your web application should use or teach at least five page-structure elements and six new input types</li>
-					<li>You should use an external style sheet for all pages of the system, to retain a consistent and user-friendly interface for your system.</li>
-					<li>When using HTML5 table, be sure that you only use it to display tabular information, not to lay out the elements on your page.</li>
-				</ol>
-
-			</p>
-
-			<b>My interpretation</b>
-			<p>
-				This part of the assignment requires us to create a tutorial on the basics of web development topics such as CSS, HTML, JavaScript, Ajax and XML.
-				In order to learn HTML elements, we should use different kinds of elements such as headers and also form elements like text fields, radio buttons and checkboxes.
-				The description also requires us to create a quiz at the end of each tutorial. The quiz should show the user's mark and the correct answers.
-				Also, the quiz should be designed so that questions can be easily added. Therefore, the assignment's UI should not be static but rather dynamically created.
-				By using the technologies learned in Units 1, 2 and 3 (JavaScript, XML and Ajax to be exact) we can create the UI dynamically.
-			</p>
-
-			<b>Analysis and Design of the Web Application</b>
-			<p>
-				First, the main page or index.html contains a welcome page that tells the user what the application does.
-				In the middle, the user is able to select which Unit they want to learn from the dropdown box. They can also select
-				which unit using the navigation menu which is available in every page of this assignment. When the user clicks a unit,
-				They are brought to another .html file which contains the lecture for the unit.
-				<br><br>
-
-				Information about the topics in each unit are stored in an XML file. Each topic belongs in the notes section of the XML file
-				and each topic has subtopics. For example, the HTML5 topic may have Elements and Forms as its subtopic. In this way, we can use JavaScript
-				and Ajax (XMLHttpRequest) to dynamically load the XML file and create the notes section in HTML.
-				The information is loaded into the .html file when the .html file calls a JavaScript file called loadnotes.js.
-				<br><br>
-
-				In loadnotes.js, we create an XMLHttpRequest object to do a GET request obtaining the XML file where the information
-				about the unit resides. We then use a DOMParser to parse through the XML file and dynamically create a list of notes for the user to read in HTML.
-				By following the XML structure, we are able to separate which information are subtopic and should be displayed as headers and which are notes.
-				<br><br>
-
-				At the end of the lecture, a button is created which leads the user to a quiz page. In a similar fashion, the quiz questions and answers are stored in an XML file.
-				To build the quiz, we call a JavaScript function called buildQuiz(). The function creates an XMLHttpRequest and a GET call for the quiz information.
-				By checking the type of question it is which is stored in the XML file, the js file knows whether to create a multiple choice type question, fill in the blanks question,
-				a true or false question, or a select all question. (Only these 4 types of questions are supported.). When the user clicks 'Submit', the form calls a callback function called
-				checkAnswer() which checks the answer of the user and compares it with the answers that are stored for each question in the XML file. The id's for each form which may contain the answer
-				are stored in a dictionary data structure while they are dynamically created. We use a dictionary so that we can use the id as a key, and the type of question as a value.
-				When checking the answer, we loop through the dictionaries keys (ids), check the value (type of question) and obtian the answer depending on the type.
-				When the answer is obtained, we simply check against the correct answers and increment a score variable accordingly.
-				<br><br>
-
-				To print the score, we first refresh the page to remove previous answers and score and then dynamically create elements to show the user their score and also the correct answers.
-			</p>
-
-			<b>Documentation</b>
-			<p>
-				Using Materialize CSS, we are able to create an aesthetically pleasing user interface. On the welcome page, I used a background image
-				which resides in shared/img. Also, every page has a navigation bar which links to the home page and the unit's html page.
-				<br><br>
-
-				<b>XML Files Format: </b>
-				<p>notes.xml</p>
-				<img src="shared/img/notesxml.png" alt="notes xml file structure" height=150 width=250>
-				<br>
-				<p>questions.xml</p>
-				<img src="shared/img/questionsxml.png" alt="questions xml file structure" height=300 width=500>
-				<br><br>
-
-				<b>JavaScript Functions: </b>
-				<p>loadnotes.js</p>
-				<ul class="browser-default">
-					<li>Creates an XMLHttpRequest to do a GET call for the notes.xml file</li>
-					<li>Uses DOMParser to parse the XML file and get elements by their tag name</li>
-					<li>Dynamically create HTML elements such as divs, headers and paragraphs to display data from XML file</li>
-				</ul>
-				<p>buildQuiz()</p>
-				<ul class="browser-default">
-					<li>Creates an XMLHttpRequest to do a GET call for the questions.xml file</li>
-					<li>Uses DOMParser to parse the XML file and get elements by their tag name</li>
-					<li>Check the type of question and then create HTML elements accordingly</li>
-					<li>Stores the 'id' of every form element in a dictionary where key=id and value=question type for later use</li>
-					<li>Store the correct answer in a list for later use</li>
-					<li>Creates a button which calls back the checkAnswer() function on submit</li>
-				</ul>
-				<p>checkAnswer()</p>
-				<ul class="browser-default">
-					<li>Iterates through the dictionary created in buildQuiz(). For each iteration, check the type of question (value)
-						and obtain the user's answer depending on the type. The for the form element is given as the key of the dictionary</li>
-					<li>After obtaining the answer, compare with the valid answers from the list created in buildQuiz()</li>
-					<li>Increments score whenever the user gets the correct answer</li>
-					<li>call printResult(score)</li>
-				</ul>
-				<p>printResult()</p>
-				<ul class="browser-default">
-					<li>Calculate the user's percentage by first getting the amount of questions and then dividing their score by the total amount</li>
-					<li>Use a for loop to loop through the correct answers list to display the correct answers to the user</li>
-				</ul>
-			</p>
-
-			<b>Set up and running</b>
-			<p>
-				To access the welcome page, assuming you are already hosting a webserver, click <a href="part2/index.html">here</a> or the link above.
-				You can navigate to the lectures by selecting a unit from the navigation bar or by using the dropdrown
-				in the middle of the welcome page.
-				<br><br>
-
-				To access the quiz, scroll to the bottom at the end of every unit. To grade the quiz, answer each question
-				and hit the Submit button at the end of the quiz. Your score and result will be revealed after submission.
-			</p>
-
-			<b>Extra Information</b>
-			<p>
-				The notes for each unit were from the given presentations for each unit (written by Pearson).
-				Materialize CSS was used for this whole assignment as approved by Harris Wang.
-			</p>
-		</div>
+		<h5 class="teal-text">Extra Information</h5>
+		<p>
+			The notes for each unit were from the given presentations for each unit (written by Pearson).
+			Materialize CSS was used for this whole assignment as approved by Harris Wang.
+		</p>
+		<p>I used <a href="https://regex101.com">regex101.com</a> to help create regex patterns to parse my EML design</p>
+		<p><a href="https://stackoverflow.com/questions/133925/javascript-post-request-like-a-form-submit">How to emulate a form submission using JS</a></p>
+	</div>
 
 		<script src="shared/js/materialize.js"></script>
 		<script src="shared/js/init.js"></script>
