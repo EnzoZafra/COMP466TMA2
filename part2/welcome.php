@@ -1,6 +1,5 @@
 <?php
 include 'helper/database.php';
-include 'helper/database_init.php';
 session_start();
 if (isset($_SESSION['loggeduser'])) {
 	header('Location: main.php');
